@@ -2,13 +2,13 @@
   "name": "uploader",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --write .",
     "commit": "git-cz",
+    "changlog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "build-core": "pnpm --filter \"@sql668/uploader-core\" build"
   },
   "keywords": [],
@@ -20,13 +20,16 @@
     "@eslint/js": "^9.38.0",
     "@rollup/plugin-alias": "^5.1.0",
     "@tanstack/config": "^0.22.0",
+    "conventional-changelog": "^7.1.1",
+    "conventional-changelog-cli": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.5.1",
     "eslint": "^9.38.0",
     "eslint-plugin-prettier": "^5.5.4",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
-    "lint-staged": "^16.2.4",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.6.2",
     "rollup": "^2.79.0",
     "rollup-plugin-cleanup": "^3.2.1",
@@ -38,9 +41,9 @@
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard": "^39.0.1",
     "stylelint-declaration-block-no-ignored-properties": "2.8.0",
+    "tslib": "^2.8.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.1",
-    "tslib": "^2.8.1"
+    "typescript-eslint": "^8.46.1"
   },
   "husky": {
     "hooks": {
@@ -50,7 +53,10 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.mjs"
     }
   },
   "lint-staged": {

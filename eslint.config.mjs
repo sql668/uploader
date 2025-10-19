@@ -30,4 +30,8 @@ export default [
       'no-self-assign': 'off',
     },
   },
+  {
+    name: 'sql668/ignores',
+    ignores: [".cz-config.js"],
+  },
 ]
